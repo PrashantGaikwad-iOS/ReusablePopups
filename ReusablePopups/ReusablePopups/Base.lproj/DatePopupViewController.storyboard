@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EXj-e0-sd4">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Date Popup View Controller-->
+        <scene sceneID="0Ab-4f-vjj">
+            <objects>
+                <viewController storyboardIdentifier="DatePopupViewController" modalPresentationStyle="overCurrentContext" id="EXj-e0-sd4" customClass="DatePopupViewController" customModule="ReusablePopups" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OyJ-Il-WQT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JGu-8K-Q1H">
+                                <rect key="frame" x="16" y="200.5" width="343" height="266"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jGx-dT-Hbm">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.034939933329999999" green="0.43586492640000002" blue="0.20677426779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ukr-0E-bcW">
+                                        <rect key="frame" x="8" y="56" width="327" height="164"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="566908591.41703606">
+                                            <!--2018-12-19 10:36:31 +0000-->
+                                        </date>
+                                    </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="93C-u7-500">
+                                        <rect key="frame" x="0.0" y="228" width="343" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                        <state key="normal" title="Save Date"/>
+                                        <connections>
+                                            <action selector="saveDate_TouchUpInside:" destination="EXj-e0-sd4" eventType="touchUpInside" id="uQK-Yu-wr3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="266" id="Oca-OI-ERa"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="0.48718428938356162" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="JGu-8K-Q1H" firstAttribute="centerY" secondItem="OyJ-Il-WQT" secondAttribute="centerY" id="aUa-Iv-Voo"/>
+                            <constraint firstItem="JGu-8K-Q1H" firstAttribute="leading" secondItem="XvO-um-ABb" secondAttribute="leading" constant="16" id="igK-xV-dAi"/>
+                            <constraint firstItem="JGu-8K-Q1H" firstAttribute="centerX" secondItem="OyJ-Il-WQT" secondAttribute="centerX" id="iiq-33-SYJ"/>
+                            <constraint firstItem="XvO-um-ABb" firstAttribute="trailing" secondItem="JGu-8K-Q1H" secondAttribute="trailing" constant="16" id="p6g-eJ-IK5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="XvO-um-ABb"/>
+                    </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="jGx-dT-Hbm" id="ntx-K9-gcL"/>
+                        <outlet property="datePicker" destination="Ukr-0E-bcW" id="yfb-57-r8j"/>
+                        <outlet property="saveDateButton" destination="93C-u7-500" id="xXI-VF-8UN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="atY-on-tIZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1536.8" y="-309.89505247376314"/>
+        </scene>
+    </scenes>
+</document>

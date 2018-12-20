@@ -15,6 +15,12 @@ class SecondViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goDatePopupViewControllerSegue"{
+            var popup = segue.destination as! DatePopupViewController
+            popup.showTimePicker = false
+        }
+    }
 
 }
 
