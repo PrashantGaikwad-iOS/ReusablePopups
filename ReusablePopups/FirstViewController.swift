@@ -10,17 +10,45 @@ import UIKit
 
 class FirstViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    // MARK: - Properties
+    @IBOutlet var dateLabel: UILabel!
+    
+    // MARK: - Data
+    var observer: NSObjectProtocol?
+    
+    // MARK: - ViewDidLoad
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // 1. Notification : Old Way
+        // NotificationCenter.default.addObserver(self, selector: #selector(handlePopupClose), name: .saveDateTime, object: nil)
+        
+        // 2. Notification : New Way
+        observer = NotificationCenter.default.addObserver(forName: .saveDateTime, object: nil, queue: OperationQueue.main) { (notification) in
+            let dateVc = notification.object as! DatePopupViewController
+            self.dateLabel.text = dateVc.formattedDate
+        }
+    }
+    
+//    @objc func handlePopupClose(notification: Notification) {
+//        let dateVc = notification.object as! DatePopupViewController
+//        dateLabel.text = dateVc.formattedDate
+//    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if let observer = observer {
+            NotificationCenter.default.removeObserver(observer)
+        }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goDatePopupViewControllerSegue"{
-            var popup = segue.destination as! DatePopupViewController
+            let popup = segue.destination as! DatePopupViewController
             popup.showTimePicker = false
         }
     }
+    
+    
     
 }
 
