@@ -33,6 +33,7 @@ class DatePopupViewController: UIViewController {
         }
     }
     var onSave: ((_ data: String) -> ())?
+    var delegate: PopupDelegate?
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -50,9 +51,11 @@ class DatePopupViewController: UIViewController {
         NotificationCenter.default.post(name: Notification.Name.saveDateTime, object: self)
         if showTimePicker{
             onSave?(formattedTime)
+            delegate?.popupValueSelected(value: formattedTime)
         }
         else{
             onSave?(formattedDate)
+            delegate?.popupValueSelected(value: formattedTime)
         }
         dismiss(animated: true)
     }
