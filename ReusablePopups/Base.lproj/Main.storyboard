@@ -107,7 +107,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Select date"/>
                                 <connections>
-                                    <segue destination="bzU-b1-uFn" kind="presentation" id="563-uM-7zK"/>
+                                    <segue destination="bzU-b1-uFn" kind="presentation" identifier="goDatePopupViewControllerSegue" id="563-uM-7zK"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -23,6 +23,7 @@ class FirstViewController: UIViewController {
         // NotificationCenter.default.addObserver(self, selector: #selector(handlePopupClose), name: .saveDateTime, object: nil)
         
         // 2. Notification : New Way
+        // Observe Notification
         observer = NotificationCenter.default.addObserver(forName: .saveDateTime, object: nil, queue: OperationQueue.main) { (notification) in
             let dateVc = notification.object as! DatePopupViewController
             self.dateLabel.text = dateVc.formattedDate

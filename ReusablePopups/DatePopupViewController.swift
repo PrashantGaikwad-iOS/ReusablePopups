@@ -32,6 +32,7 @@ class DatePopupViewController: UIViewController {
             return formatter.string(from: datePicker!.date)
         }
     }
+    var onSave: ((_ data: String) -> ())?
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -47,6 +48,12 @@ class DatePopupViewController: UIViewController {
     @IBAction func saveDate_TouchUpInside(_ sender: Any) {
         // Post Notification
         NotificationCenter.default.post(name: Notification.Name.saveDateTime, object: self)
+        if showTimePicker{
+            onSave?(formattedTime)
+        }
+        else{
+            onSave?(formattedDate)
+        }
         dismiss(animated: true)
     }
     

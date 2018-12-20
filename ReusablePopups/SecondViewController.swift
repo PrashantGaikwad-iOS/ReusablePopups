@@ -10,16 +10,35 @@ import UIKit
 
 class SecondViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    // MARK: - Properties
+    @IBOutlet var dateLabel: UILabel!
+    
+    // MARK: - Data
+    
+    // MARK: - ViewDidLoad
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+    }
+
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goDatePopupViewControllerSegue"{
-            var popup = segue.destination as! DatePopupViewController
+            let popup = segue.destination as! DatePopupViewController
             popup.showTimePicker = false
+            // popup.onSave = onSave
+            popup.onSave = { (data: String) -> () in
+                self.dateLabel.text = data
+            }
         }
+    }
+    
+    func onSave(_ data: String) -> () {
+        dateLabel.text = data
     }
 
 }
